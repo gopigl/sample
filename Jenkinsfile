@@ -1,7 +1,7 @@
   
 node{
    stage('SCM Checkout'){
-     git 'https://github.com/gopigl/sample-project'
+     git 'https://github.com/gopigl/sample'
    }
    stage('Compile-Package'){
       // Get maven home path
