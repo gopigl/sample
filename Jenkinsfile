@@ -15,6 +15,13 @@ node{
           sh "${mvnHome}/bin/mvn sonar:sonar"
         }
     }
+  
+   stage('Deploy to Tomcat'){
+      
+      sshagent(['tomcat-dev']) {
+         sh 'scp -o StrictHostKeyChecking=no target/*.jar ec2-user@54.90.115.129:/opt/tomcat9/webapps/'
+      }
+   }
    
    
 
