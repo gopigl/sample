@@ -15,6 +15,14 @@ node{
           sh "${mvnHome}/bin/mvn sonar:sonar"
         }
     }
+   
+   stage('SonarQube analysis') {
+            steps {
+                withSonarQubeEnv('SonarQube') {
+                    sh "./gradlew sonarqube"
+                }
+            }
+   }
   
    stage('Deploy to Tomcat'){
       
